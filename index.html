@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src="src/jquery-3.4.1.min.js"></script>
+	<title>Plot</title>
+	<meta charset="UTF-8" />
+	<link href="https://fonts.googleapis.com/css?family=Saira+Stencil+One&display=swap" rel="stylesheet">
+	<style>
+		#gameScreen {
+ 			border: 1px solid black;
+		}
+	</style>
+	<link rel="stylesheet" href="src/bootstrap.min.css">
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" style="margin: auto; font-family: 'Saira Stencil One', cursive; font-size: 30px;" href="#">GRAPH IT !</a>
+	</nav>
+	<div class="row">
+		<div class="col-lg-10">
+			<canvas id="gameScreen" width="800" height="600"></canvas> 
+		</div>
+		<div class="col-lg-2">
+			<form>
+				<textarea style="padding: 10px;" placeholder="The first line contains two integers 𝑛 and 𝑚  — the number of vertices and the number of edges in the graph. The next 𝑚 lines contain two integers each denoting an edge" id="textArea" cols="20" rows="20"></textarea>
+			</form>
+			<button id="button" type="button" class="btn btn-dark">PLOT</button>
+		</div>
+	</div>
+	
+	<script src="src/index.js">
+	</script>
+</body>
+
+</html>
