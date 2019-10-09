@@ -1,37 +1,27 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<script src="src/jquery-3.4.1.min.js"></script>
-	<title>Graph It</title>
-	<meta charset="UTF-8" />
-	<link href="https://fonts.googleapis.com/css?family=Saira+Stencil+One&display=swap" rel="stylesheet">
-	<style>
-		#gameScreen {
- 			border: 1px solid black;
-		}
-	</style>
+	<title>Graph</title>
+	<script type="text/javascript" src="src/matter.min.js"></script>
+	<script type="text/javascript" src="src/p5.min.js"></script>
 	<link rel="stylesheet" href="src/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Saira+Stencil+One&display=swap" rel="stylesheet">
 </head>
-
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<a class="navbar-brand" style="margin: auto; font-family: 'Saira Stencil One', cursive; font-size: 30px;" href="#">GRAPH IT !</a>
 	</nav>
 	<div class="row">
-		<div class="col-lg-10">
-			<canvas id="gameScreen" width="800" height="600"></canvas> 
+		<div class="col-lg-10" id="sketch-holder">
 		</div>
 		<div class="col-lg-2">
 			<form>
 				<textarea style="padding: 10px;" placeholder="The first line contains two integers 𝑛 and 𝑚  — the number of vertices and the number of edges in the graph. The next 𝑚 lines contain two integers each denoting an edge" id="textArea" cols="20" rows="20"></textarea>
 			</form>
-			<button id="button" type="button" class="btn btn-dark">PLOT</button>
+			<button id="button" type="button" onclick="makeGraph()" class="btn btn-dark">PLOT</button>
 		</div>
 	</div>
-	
-	<script src="src/index.js">
-	</script>
+	<script type="text/javascript" src="assets/particle.js"></script>
+	<script type="text/javascript" src="assets/graph.js"></script>
 </body>
-
 </html>
