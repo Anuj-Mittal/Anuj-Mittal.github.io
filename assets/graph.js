@@ -75,6 +75,10 @@ function makeGraph(){
         graph.set(i, new Particle(random() * width, random() * height, RADIUS, i));
     }
     var m = parseInt(inputArr[1]);//edges
+    if((inputArr.length - 2) % 2 == 1 || (inputArr.length-2)/2 != m){
+    	alert("Invalid Input !");
+    	reload();
+    }
     for(var i = 0,j = 0;m > j;i+=2, j++){
         var a = parseInt(inputArr[i+2]);
         var b = parseInt(inputArr[i+3]);
@@ -84,7 +88,7 @@ function makeGraph(){
 }
 
 function draw(){
-	background('black');
+	background(25);
 	Engine.update(engine);
 
 	//Draw Links
