@@ -45,17 +45,7 @@ function addBoundaries(){
 	var bottom = Bodies.rectangle(width/2, height+50, width, 100, {isStatic : true});
 	World.add(world, bottom);
 }
-
-function makeGraph(){ 
-	//Triggered when plot button is clicked
-
-	//Clear graph and remove existing bodies from World
-	for(var [key, value] of graph){
-		World.remove(world, value.body);
-    }
-    graph.clear();
-
-
+function inputHandler(){
 	//Conversion of input to suitable form 
 	var val = document.getElementById("textArea").value;
     var temp = val;
@@ -67,23 +57,59 @@ function makeGraph(){
             inputArr.push(tempArr[i]);
         }
     }
-
+    return inputArr;
+}
+function clearGraph(){
+	//Clear graph and remove existing bodies from World
+	for(var [key, value] of graph){
+		World.remove(world, value.body);
+    }
+    graph.clear();
+}
+function makeGraph(){ 
+	//Triggered when plot button is clicked
+	//Clear graph and remove existing bodies from World
+	clearGraph();
+    //INPUT
+	var inputArr = inputHandler();
 
     //Make graph map by filling in adjacency list
     var n = parseInt(inputArr[0]);//nodes
     for(var i = 1;n >= i;i++){
-        graph.set(i, new Particle(random() * width, random() * height, RADIUS, i));
+        graph.set(i, new Particle(random() * width, random() * height, RADIUS, i, false));
     }
     var m = parseInt(inputArr[1]);//edges
     if((inputArr.length - 2) % 2 == 1 || (inputArr.length-2)/2 != m){
     	alert("Invalid Input !");
-    	reload();
     }
     for(var i = 0,j = 0;m > j;i+=2, j++){
         var a = parseInt(inputArr[i+2]);
         var b = parseInt(inputArr[i+3]);
         graph.get(a).adj.push(graph.get(b));
         graph.get(b).adj.push(graph.get(a));
+    }
+}
+
+function directedGraph(){ 
+	//Triggered when plot button is clicked
+	//Clear graph and remove existing bodies from World
+	clearGraph();
+    //INPUT
+	var inputArr = inputHandler();
+
+    //Make graph map by filling in adjacency list
+    var n = parseInt(inputArr[0]);//nodes
+    for(var i = 1;n >= i;i++){
+        graph.set(i, new Particle(random() * width, random() * height, RADIUS, i, true));
+    }
+    var m = parseInt(inputArr[1]);//edges
+    if((inputArr.length - 2) % 2 == 1 || (inputArr.length-2)/2 != m){
+    	alert("Invalid Input !");
+    }
+    for(var i = 0,j = 0;m > j;i+=2, j++){
+        var a = parseInt(inputArr[i+2]);
+        var b = parseInt(inputArr[i+3]);
+        graph.get(a).adj.push(graph.get(b));
     }
 }
 
