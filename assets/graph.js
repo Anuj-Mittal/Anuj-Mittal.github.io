@@ -13,7 +13,8 @@ var mConstraint;
 var graph = new Map();
 function setup(){
 	//Starting engine and world
-	var canvas = createCanvas(screen.width*10/12, screen.height*0.8);
+	var sketchHolder = document.getElementById('sketch-holder');
+	var canvas = createCanvas(sketchHolder.scrollWidth, window.innerHeight*0.9);
 	canvas.parent('sketch-holder');
 	engine = Engine.create();
 	world  = engine.world;
